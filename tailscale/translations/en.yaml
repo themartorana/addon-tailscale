@@ -64,6 +64,11 @@ configuration:
       To support advanced Site-to-site networking (eg. to traverse multiple
       networks), you can disable this functionality.
       When not set, this option is enabled by default.
+  ssh:
+    name: Allow Tailscale to manage the authentication and authorization of SSH
+    description: >-
+      This option will allow Tailscale to take over SSH authentication and
+      authorization for your HA instance. 
   tags:
     name: Tags
     description: >-
