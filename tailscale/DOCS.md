@@ -74,6 +74,7 @@ login_server: "https://controlplane.tailscale.com"
 proxy: false
 proxy_and_funnel_port: 443
 snat_subnet_routes: true
+ssh: true
 tags:
   - tag:example
   - tag:homeassistant
@@ -253,6 +254,17 @@ and optionally on the internet (in case of Tailscale Funnel is also enabled).
 Only port number 443, 8443 and 10000 is allowed by Tailscale.
 
 When not set, port number 443 is used by default.
+
+### Option: `ssh`
+
+From [Tailscale knowledgebase](https://tailscale.com/kb/1193/tailscale-ssh):
+
+This option allows Tailscale to manage the authentication and authorization 
+of SSH connections on your tailnet. With Tailscale SSH, Tailscale takes over 
+port 22 for SSH connections incoming from the Tailscale network. Tailscale 
+will authenticate and encrypt the connection over WireGuard, using Tailscale 
+node keys. The SSH client and server will still create an encrypted SSH connection, 
+but it will not be further authenticated.
 
 ### Option: `snat_subnet_routes`
 
