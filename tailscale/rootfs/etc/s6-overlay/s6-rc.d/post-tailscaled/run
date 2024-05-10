@@ -59,8 +59,7 @@ else
 fi
 
 # Have tailscale take over SSH
-if ! bashio::config.has_value "ssh" || \
-  bashio::config.true "ssh";
+if bashio::config.true "ssh";
 then
   options+=(--ssh)
 else
@@ -86,6 +85,7 @@ do
 done
 
 # Start Tailscale
+echo "RUNNING: /opt/tailscale up" "${options[@]}"
 if ! /opt/tailscale up "${options[@]}"; then
   bashio::log.error "Unable to start up Tailscale"
   bashio::exit.nok
