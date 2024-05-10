@@ -85,7 +85,7 @@ do
 done
 
 # Start Tailscale
-bashio::log.info "Tailscale up command: /opt/tailscale up" "${options[@]}"
+bashio::log.info "/opt/tailscale up" "${options[@]}"
 if ! /opt/tailscale up "${options[@]}"; then
   bashio::log.error "Unable to start up Tailscale"
   bashio::exit.nok
